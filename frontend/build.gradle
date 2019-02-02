@@ -1,0 +1,4 @@
+task copy(type: Copy, group: "Front_end", description: "Copies front-end templates to the back-end resource directory") {
+    from "src/main/resources"
+    into "../backend/src/main/resources"
+}
