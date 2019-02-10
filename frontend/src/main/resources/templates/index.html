@@ -5,26 +5,38 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script type="text/javascript" th:src="@{/js/src/index.js}" defer></script>
         <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
     </head>
     <body>
         <div id="app">
-            {{ message }}
+            <h1>Sailboat Price Analysis</h1>
+            <h2>Make by Length by Year</h2>
+            <ul>
+                <li>
+
+                </li>
+            </ul>
+            <h2>Raw Data</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Length</th>
+                        <th>Year</th>
+                        <th>Make</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="datum in rawData">
+                        <td>{{ datum.length | toLengthDecimal }}</td>
+                        <td>{{ datum.year }}</td>
+                        <td>{{ datum.make }}</td>
+                        <td>{{ datum.price | toUSDCurrency }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <table>
-            <tr>
-                <th>LENGTH</th>
-                <th>YEAR</th>
-                <th>MAKE</th>
-                <th>PRICE</th>
-            </tr>
-            <tr th:each="sailboatDatum : ${sailboatData}">
-                <td th:text="${sailboatDatum.length}">Length ...</td>
-                <td th:text="${sailboatDatum.year}">Year ...</td>
-                <td th:text="${sailboatDatum.make}">Make ...</td>
-                <td th:text="${sailboatDatum.price}">Price ...</td>
-            </tr>
-        </table>
     </body>
 </html>

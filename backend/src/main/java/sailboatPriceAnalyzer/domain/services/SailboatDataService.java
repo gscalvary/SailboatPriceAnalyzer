@@ -1,6 +1,7 @@
 package sailboatPriceAnalyzer.domain.services;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +23,7 @@ public class SailboatDataService {
         this.restTemplate = restTemplate;
     }
 
+    @Cacheable("data")
     public List<SailboatData> getSailboatData() {
 
         ResponseEntity<List<SailboatData>> responseEntity = restTemplate.exchange(
