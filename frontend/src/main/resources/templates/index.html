@@ -5,8 +5,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script type="text/javascript" th:src="@{/js/src/index.js}" defer></script>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
     </head>
     <body>
+        <div id="app">
+            {{ message }}
+        </div>
         <table>
             <tr>
                 <th>LENGTH</th>
