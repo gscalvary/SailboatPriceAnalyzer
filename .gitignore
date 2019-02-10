@@ -2,4 +2,6 @@ settings.gradle
 .gradle/*
 .idea/*
 backend/build/*
+backend/src/main/resources/static/*
+backend/src/main/resources/templates/*
 gradle*
